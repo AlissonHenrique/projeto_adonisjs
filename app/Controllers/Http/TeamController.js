@@ -26,7 +26,6 @@ class TeamController {
     const team = await auth.user.teams().where('teams.id', params.id).first()
     team.merge(data)
     await team.save
-
     return team
   }
 

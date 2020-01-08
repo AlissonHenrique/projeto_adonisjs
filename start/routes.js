@@ -6,3 +6,7 @@ Route.post('sessions', 'SessionController.store')
 Route.group(() => {
   Route.resource('teams', 'TeamController').apiOnly()
 }).middleware('auth')
+
+Route.group(() => {
+  Route.post('invite', 'InviteController.store')
+}).middleware(['auth', 'team'])
